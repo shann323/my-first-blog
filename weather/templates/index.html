@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather Forecast</title>
+<meta name="Author" content="Bharani M">
+<meta name="Description" content="A kickass CSS3 Dropdown menu">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link href='{% static 'http://fonts.googleapis.com/css?family=Oswald' %}' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+<body bgcolor="#ffb3ff">
+<section id="wrapper">
+	<h1>City Weather</h1>
+	<h3>Enter Your City Name</h3>
+	<div id="main">
+		<form action="forecast" method="POST">
+		   {% csrf_token %}
+			<input type="text" name="city" id="search">
+			<input type="submit" class="solid" value="Search">
+		</form>
+	</div>
+	{% for message in messages %}
+	<p style="position:relative; bottom:20px; left:2px; color:red">{{message}}</p>
+	{% endfor %}
+	
+	<!--main-->
+
+</body>
+</html>
